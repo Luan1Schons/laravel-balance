@@ -18,9 +18,10 @@ trait HasBalance
 
     public function withCurrency(string $currency): self
     {
-        $this->currency = $currency;
+        $clone = clone $this;
+        $clone->currency = $currency;
 
-        return $this;
+        return $clone;
     }
 
     protected function credit(): Attribute
